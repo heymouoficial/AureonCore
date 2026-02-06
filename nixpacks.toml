@@ -1,9 +1,7 @@
 # Nixpacks config para Railway
+# "..." incluye los paquetes detectados (Python + pip)
 [phases.setup]
-nixPkgs = ["python311"]
-
-[phases.install]
-cmds = ["pip install -r requirements.txt"]
+nixPkgs = ["..."]
 
 [start]
 cmd = "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"
