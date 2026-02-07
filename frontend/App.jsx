@@ -2,18 +2,17 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import LandingPage from './pages/LandingPage';
+import FounderGate from './pages/FounderGate';
 import CockpitLayout from './pages/CockpitLayout';
-import AuthPage from './pages/AuthPage';
 
 function App() {
     return (
         <AuthProvider>
             <Router>
                 <Routes>
-                    {/* Public Route: Landing Page */}
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/login" element={<AuthPage />} />
+                    {/* Founder Gate: bienvenida + login (único acceso) */}
+                    <Route path="/" element={<FounderGate />} />
+                    <Route path="/login" element={<Navigate to="/" replace />} />
 
                     {/* App Route: The OS Cockpit */}
                     <Route
