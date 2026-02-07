@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+/** Multiversa Carbon/Chartreuse Design System */
 export default {
     content: [
         "./index.html",
@@ -8,6 +9,23 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                carbon: '#1b1b1b',
+                graphite: '#2f2f2f',
+                chartreuse: '#b7ff00',
+                ivory: '#fafce8',
+            },
+            fontFamily: {
+                heading: ['Plus Jakarta Sans', 'sans-serif'],
+                body: ['Sora', 'sans-serif'],
+                mono: ['JetBrains Mono', 'monospace'],
+            },
+            borderRadius: {
+                'sm': 'calc(0.5rem - 4px)',
+                'md': 'calc(0.5rem - 2px)',
+                'lg': '0.5rem',
+                'xl': 'calc(0.5rem + 4px)',
+            },
             animation: {
                 'star-movement-bottom': 'star-movement-bottom linear infinite',
                 'star-movement-top': 'star-movement-top linear infinite',

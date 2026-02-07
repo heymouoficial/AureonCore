@@ -1,7 +1,7 @@
 # 🌌 Auréon Quantum - Nucleo de Orquestación y Multi-tenencia
 from contextlib import asynccontextmanager
 from typing import Optional, List, Dict
-from fastapi import FastAPI, Request, HTTPException, Depends, UploadFile, File
+from fastapi import FastAPI, Request, HTTPException, Depends, UploadFile, File, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -465,13 +465,19 @@ async def execute_nanoaureon(
 
 @app.get("/webhook/whatsapp")
 async def verify_whatsapp(
-    hub_mode: str = None,
-    hub_challenge: str = None,
-    hub_verify_token: str = None
+    hub_mode: Optional[str] = Query(None, alias="hub.mode"),
+    hub_challenge: Optional[str] = Query(None, alias="hub.challenge"),
+    hub_verify_token: Optional[str] = Query(None, alias="hub.verify_token"),
 ):
-    """Verificación de webhook de WhatsApp."""
+    """
+    Verificación de webhook de WhatsApp (Meta Developers).
+    Meta envía GET con hub.mode, hub.challenge, hub.verify_token.
+    Hay que devolver el challenge si el token coincide.
+    """
+    if not settings.whatsapp_verify_token:
+        raise HTTPException(status_code=500, detail="WHATSAPP_VERIFY_TOKEN not configured")
     if hub_mode == "subscribe" and hub_verify_token == settings.whatsapp_verify_token:
-        return int(hub_challenge) if hub_challenge else ""
+        return hub_challenge or ""
     raise HTTPException(status_code=403, detail="Invalid verify token")
 
 

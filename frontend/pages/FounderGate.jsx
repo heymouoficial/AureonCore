@@ -36,12 +36,12 @@ export default function FounderGate() {
             <div className="auth-panel glass-panel">
                 <div className="auth-header">
                     <div className="flex items-center justify-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                            <Brain size={24} className="text-cyan-400" />
+                        <div className="w-12 h-12 rounded-xl bg-chartreuse/10 border border-chartreuse/20 flex items-center justify-center">
+                            <Brain size={24} className="text-chartreuse" />
                         </div>
                     </div>
-                    <h1 className="text-2xl font-bold text-white">Cockpit Aureon</h1>
-                    <p className="text-cyan-400/90 text-sm mt-1">Bienvenido, Founder</p>
+                    <h1 className="text-2xl font-bold text-ivory">Cockpit Aureon</h1>
+                    <p className="text-chartreuse/90 text-sm mt-1">Bienvenido, Founder</p>
                     <p className="text-gray-500 text-xs mt-2">Acceso exclusivo</p>
                 </div>
 

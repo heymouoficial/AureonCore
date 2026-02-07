@@ -1,79 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================================
-   AUREON PORTALITY - Premium LiquidGlass Design System
-   With Theme Support & Accent Colors
+   MULTIVERSA CARBON/CHARTREUSE Design System
+   Palette: Carbon (#1b1b1b), Graphite (#2f2f2f), Chartreuse (#b7ff00), Ivory (#fafce8)
    ============================================================ */
 
-/* --- ACCENT COLOR DEFINITIONS --- */
+/* --- DESIGN TOKENS --- */
 :root {
-    --font-display: 'Sora', sans-serif;
-    --font-body: 'Manrope', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Sora', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+    --font-display: var(--font-heading);
 
-    /* Cyan Accent */
-    --accent-cyan-primary: #06b6d4;
-    --accent-cyan-light: #22d3ee;
-    --accent-cyan-dark: #0891b2;
-    --accent-cyan-glow: rgba(6, 182, 212, 0.25);
+    /* Carbon Palette */
+    --color-carbon: #1b1b1b;
+    --color-graphite: #2f2f2f;
+    --color-chartreuse: #b7ff00;
+    --color-ivory: #fafce8;
 
-    /* Blue Accent */
+    /* Accent = Chartreuse (primary) */
+    --accent: var(--color-chartreuse);
+    --accent-light: #c8ff33;
+    --accent-dark: #9ae600;
+    --accent-glow: rgba(183, 255, 0, 0.25);
+
+    /* Semantic aliases for compatibility */
+    --accent-cyan-primary: var(--color-chartreuse);
+    --accent-cyan-light: var(--accent-light);
+    --accent-cyan-dark: var(--accent-dark);
+    --accent-cyan-glow: var(--accent-glow);
+
     --accent-blue-primary: #3b82f6;
     --accent-blue-light: #60a5fa;
     --accent-blue-dark: #2563eb;
     --accent-blue-glow: rgba(59, 130, 246, 0.25);
 
-    /* Gray Accent */
-    --accent-gray-primary: #64748b;
-    --accent-gray-light: #94a3b8;
-    --accent-gray-dark: #475569;
-    --accent-gray-glow: rgba(100, 116, 139, 0.25);
-
-    /* Green Accent */
     --accent-green-primary: #10b981;
     --accent-green-light: #34d399;
     --accent-green-dark: #059669;
     --accent-green-glow: rgba(16, 185, 129, 0.25);
 
-    /* Secondary accent for gradients */
-    --accent-secondary: #8b5cf6;
+    --accent-secondary: var(--color-chartreuse);
 }
 
-/* --- DARK THEME (Default) --- */
+/* --- DARK THEME (Default) - Multiversa Carbon --- */
 :root,
 [data-theme="dark"] {
-    /* Background Layers - Deep Obsidian */
-    --bg-base: #050505;
-    --bg-elevated: #0a0a0f;
-    --bg-surface: #0f0f15;
-    --bg-hover: #1a1a25;
+    /* Background Layers - Carbon */
+    --bg-base: var(--color-carbon);
+    --bg-elevated: #222;
+    --bg-surface: var(--color-graphite);
+    --bg-hover: #3a3a3a;
 
-    /* Emerald - Auréon Identity */
-    --color-emerald: #2ECC71;
-    --color-emerald-glow: rgba(46, 204, 113, 0.4);
+    /* Chartreuse - Primary Accent */
+    --color-emerald: var(--color-chartreuse);
+    --color-emerald-glow: rgba(183, 255, 0, 0.4);
 
-    /* Cyan - Liquid/Interactivity */
-    --color-cyan: #00F2FF;
-    --color-cyan-glow: rgba(0, 242, 255, 0.4);
+    /* Cyan alias → Chartreuse */
+    --color-cyan: var(--color-chartreuse);
+    --color-cyan-glow: rgba(183, 255, 0, 0.4);
 
     /* Warm - Orange flow */
     --color-warm: #ff8c32;
     --color-warm-glow: rgba(255, 140, 50, 0.35);
 
-    /* Text */
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --text-inverse: #0f172a;
+    /* Text - Ivory */
+    --text-primary: var(--color-ivory);
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --text-inverse: var(--color-carbon);
 
-    /* Borders & Dividers */
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-default: rgba(255, 255, 255, 0.1);
-    --border-emphasis: rgba(255, 255, 255, 0.15);
+    /* Borders - Subtle ivory */
+    --border-subtle: rgba(250, 252, 232, 0.06);
+    --border-default: rgba(250, 252, 232, 0.1);
+    --border-emphasis: rgba(250, 252, 232, 0.15);
 
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -81,32 +85,31 @@
     --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
     --shadow-glow: 0 0 40px var(--accent-glow);
 
-    /* Mesh Gradient Background - Dark Premium */
+    /* Mesh Gradient - Carbon with chartreuse hint */
     --gradient-mesh:
-        radial-gradient(ellipse 100% 60% at 10% 90%, rgba(26, 10, 46, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 80% 50% at 90% 20%, rgba(0, 242, 255, 0.03) 0%, transparent 40%),
-        linear-gradient(135deg, #050505 0%, #0a0a12 50%, #050505 100%);
+        radial-gradient(ellipse 100% 60% at 10% 90%, rgba(47, 47, 47, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 50% at 90% 20%, rgba(183, 255, 0, 0.03) 0%, transparent 40%),
+        linear-gradient(135deg, #1b1b1b 0%, #252525 50%, #1b1b1b 100%);
 
-    /* Deep 3D Shadows */
+    /* Deep Shadows */
     --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.9);
-    --shadow-glow-cyan: 0 0 40px var(--color-cyan-glow);
-    --shadow-glow-emerald: 0 0 30px var(--color-emerald-glow);
+    --shadow-glow-cyan: 0 0 40px var(--accent-glow);
+    --shadow-glow-emerald: 0 0 30px var(--accent-glow);
 
-    /* Fresnel Border Effect */
+    /* Fresnel Border - Chartreuse hint */
     --border-fresnel: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.15) 0%,
-            rgba(0, 242, 255, 0.1) 50%,
-            rgba(255, 255, 255, 0.05) 100%);
+            rgba(250, 252, 232, 0.15) 0%,
+            rgba(183, 255, 0, 0.1) 50%,
+            rgba(250, 252, 232, 0.05) 100%);
 
     /* Animation Timings */
     --transition-liquid: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Glass properties - more subtle for dark theme */
-    /* Extreme Glassmorphism */
+    /* Glass - Graphite */
     --glass-blur: 25px;
-    --glass-bg: rgba(10, 10, 15, 0.85);
-    --glass-bg-light: rgba(15, 15, 20, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(47, 47, 47, 0.6);
+    --glass-bg-light: rgba(47, 47, 47, 0.5);
+    --glass-border: rgba(183, 255, 0, 0.1);
     --glass-highlight: rgba(255, 255, 255, 0.05);
 }
 
@@ -138,13 +141,14 @@
 }
 
 /* --- ACCENT COLOR SELECTION --- */
-/* Default: Cyan */
+/* Default: Chartreuse (Multiversa) */
 :root,
+[data-accent="chartreuse"],
 [data-accent="cyan"] {
-    --accent: var(--accent-cyan-primary);
-    --accent-light: var(--accent-cyan-light);
-    --accent-dark: var(--accent-cyan-dark);
-    --accent-glow: var(--accent-cyan-glow);
+    --accent: var(--color-chartreuse);
+    --accent-light: var(--accent-light);
+    --accent-dark: var(--accent-dark);
+    --accent-glow: var(--accent-glow);
 }
 
 [data-accent="blue"] {
@@ -168,12 +172,12 @@
     --accent-glow: var(--accent-green-glow);
 }
 
-/* --- GLASS EFFECTS --- */
+/* --- GLASS EFFECTS (Multiversa) --- */
 :root {
     --glass-blur: 20px;
     --glass-saturation: 1.5;
-    --glass-bg: rgba(15, 23, 42, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(47, 47, 47, 0.6);
+    --glass-border: rgba(183, 255, 0, 0.1);
     --glass-highlight: rgba(255, 255, 255, 0.04);
 }
 
@@ -192,6 +196,22 @@
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
+}
+
+/* --- MULTIVERSA UTILITIES --- */
+.text-gradient-chartreuse {
+    background: linear-gradient(135deg, #b7ff00 0%, #fafce8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glass-card {
+    background: rgba(47, 47, 47, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(183, 255, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* --- ANIMATION & TRANSITIONS --- */
@@ -226,16 +246,24 @@ html {
 
 body {
     font-family: var(--font-body);
+    background-color: #1b1b1b;
     background: var(--gradient-mesh);
     background-size: 300% 300%;
     animation: meshFlow 20s ease infinite;
     background-attachment: fixed;
-    color: var(--text-primary);
+    color: #fafce8;
     line-height: 1.6;
     overflow-x: hidden;
     transition: background var(--transition-theme), color var(--transition-theme);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--color-ivory);
 }
 
 /* --- App Layout --- */
@@ -324,7 +352,7 @@ body {
 .sidebar-title {
     font-size: 1.25rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    background: linear-gradient(135deg, #b7ff00 0%, #fafce8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2800,7 +2828,7 @@ body {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--color-cyan-glow), transparent 65%);
+    background: radial-gradient(circle, rgba(183, 255, 0, 0.25), transparent 65%);
     filter: blur(40px);
     opacity: 0.6;
 }
@@ -2840,9 +2868,9 @@ body {
 }
 
 .auth-tabs button.active {
-    border-color: var(--color-cyan);
+    border-color: var(--color-chartreuse);
     color: var(--text-primary);
-    box-shadow: var(--shadow-glow-cyan);
+    box-shadow: 0 0 20px rgba(183, 255, 0, 0.2);
 }
 
 .auth-form {
@@ -2863,7 +2891,7 @@ body {
     padding: 12px 14px;
     border-radius: 10px;
     border: 1px solid var(--border-subtle);
-    background: rgba(10, 10, 15, 0.75);
+    background: rgba(47, 47, 47, 0.75);
     color: var(--text-primary);
 }
 
@@ -2872,10 +2900,14 @@ body {
     padding: 12px;
     border-radius: 12px;
     border: none;
-    background: linear-gradient(120deg, var(--color-emerald), var(--color-cyan));
-    color: #050505;
+    background: var(--color-chartreuse);
+    color: #1b1b1b;
     font-weight: 700;
     cursor: pointer;
+}
+
+.auth-submit:hover {
+    filter: brightness(1.1);
 }
 
 .auth-error {
@@ -2892,7 +2924,7 @@ body {
 }
 
 .auth-footer a {
-    color: var(--color-cyan);
+    color: var(--color-chartreuse);
 }
 
 .auth-loading {
