@@ -1,0 +1,73 @@
+{
+    "name": "Aureon Portality",
+    "short_name": "Aureon",
+    "description": "Sistema Operativo Inteligente - Backend Visual",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0f1a",
+    "theme_color": "#8b5cf6",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/icons/icon-72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "productivity",
+        "business",
+        "utilities"
+    ],
+    "shortcuts": [
+        {
+            "name": "Chat con Auréon",
+            "short_name": "Chat",
+            "description": "Abrir chat con Auréon",
+            "url": "/?view=chat",
+            "icons": [
+                {
+                    "src": "/icons/chat.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "NanoAureons",
+            "short_name": "Fleet",
+            "description": "Ver fleet de NanoAureons",
+            "url": "/?view=nanoaureons",
+            "icons": [
+                {
+                    "src": "/icons/fleet.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}

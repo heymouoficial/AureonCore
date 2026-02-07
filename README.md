@@ -10,12 +10,26 @@
 | **Backend** (AureonCore) | core.multiversa.group | Railway |
 | **Frontend** (Admin / Aureon Visual) | app.multiversa.group | Vercel |
 
+**Vercel**: Importar este repo → Root Directory = `frontend` → Variables: `VITE_API_URL`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+
+## Crear repo en GitHub
+
+```bash
+# En GitHub: New repository → nombre: AureonCore
+
+cd /Users/moshe/Proyectos/AureonCore
+git remote add origin https://github.com/TU_USUARIO/AureonCore.git
+git branch -M main
+git push -u origin main
+```
+
 ## Railway
 
-1. Conecta este repo a Railway (GitHub App instalada)
-2. Configura variables de entorno en Railway Dashboard (ver `.env.example`)
-3. Añade dominio personalizado: `core.multiversa.group`
-4. Railway usa Nixpacks/Procfile para desplegar
+1. En [Railway](https://railway.app) → **New Project** → **Deploy from GitHub repo**
+2. Conecta y selecciona el repo **AureonCore**
+3. Configura variables de entorno en **Variables** (ver `.env.example`)
+4. **Settings** → **Domains** → añade `core.multiversa.group`
+5. Railway detecta Procfile/Nixpacks y despliega
 
 ### Variables requeridas en Railway
 
